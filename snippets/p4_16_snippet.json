@@ -1,0 +1,9 @@
+{
+    "table": {
+        "prefix": "table",
+        "body": [
+            "teste $1"
+        ],
+		"description": "Create a match-action table"
+    }
+}

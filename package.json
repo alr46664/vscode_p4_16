@@ -1,0 +1,32 @@
+{
+    "name": "p4-16",
+    "displayName": "p4_16",
+    "description": "p4_16 language highlighter and snippets",
+    "version": "1.1.0",
+    "publisher": "andre-madureira",
+    "engines": {
+        "vscode": "^1.31.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "snippets": [
+            {
+                "language": "p4_16",
+                "path": "./snippets/p4_16_snippet.json"
+            }
+        ],
+        "languages": [{
+            "id": "p4_16",
+            "aliases": ["P4_16", "p4_16"],
+            "extensions": [".p4"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "p4_16",
+            "scopeName": "text.p4_16",
+            "path": "./syntaxes/p4_16.tmLanguage.json"
+        }]
+    }
+}
