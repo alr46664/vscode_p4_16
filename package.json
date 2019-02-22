@@ -1,9 +1,14 @@
 {
     "name": "p4-16",
-    "displayName": "p4_16",
+    "displayName": "P4_16 Language Support",
     "description": "p4_16 language highlighter and snippets",
     "version": "1.1.0",
     "publisher": "andre-madureira",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alr46664/vscode_p4_16"
+    },
+    "icon": "icon.png",
     "engines": {
         "vscode": "^1.31.0"
     },

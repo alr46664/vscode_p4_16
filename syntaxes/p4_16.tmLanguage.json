@@ -3,19 +3,71 @@
 	"name": "P4_16",
 	"patterns": [
 		{
+			"include": "#line_comment"
+		},
+		{
+			"include": "#block_comment"
+		},
+		{
+			"include": "#functions"
+		},		
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#numbers"
+		},
+		{
+			"include": "#constants"
+		},
+		{
 			"include": "#keywords"
 		},
 		{
-			"include": "#strings"
-		}
+			"include": "#variables"
+		},
+		{
+			"include": "#types"
+		},
+		{
+			"include": "#direction_modifier"
+		},
+		{
+			"include": "#preprocessors"
+		},
+		{
+			"include": "#operations"
+		},
+		{
+			"include": "#p4file"
+		},
+		{
+			"include": "#type_definition"
+		},
+		{
+			"include": "#custom_types"
+		},
+		{
+			"include": "#package"
+		},		
+		{
+			"include": "#parameters"
+		}										
+		
 	],
 	"repository": {
-		"keywords": {
+		"line_comment": {			
 			"patterns": [{
-				"name": "keyword.control.p4_16",
-				"match": "\\b(if|while|for|return)\\b"
+				"name": "comment.line.double-slash.p4_16",		
+				"match": "//.*"
 			}]
-		},
+		},	
+		"block_comment": {
+			"name": "comment.block.double.p4_16",
+			"begin": "/[*]",
+			"end": "[*]/",
+			"patterns": []
+		},					
 		"strings": {
 			"name": "string.quoted.double.p4_16",
 			"begin": "\"",
@@ -26,7 +78,85 @@
 					"match": "\\\\."
 				}
 			]
-		}
+		},
+		"numbers": {
+			"patterns": [{
+				"name": "constant.numeric.p4_16",
+				"match": "(?<![a-zA-Z0-9_])(0[xX][0-9a-fA-F_]+|0[dD][0-9_]+|0[oO][0-7_]+|0[bB][01_]+|[0-9]+)(?![a-zA-Z0-9_])"
+			}]
+		},
+		"constants": {
+			"patterns": [{
+				"name": "constant.language.p4_16",
+				"match": "\\b(true|false|NoError|PacketTooShort|NoMatch|StackOutOfBounds|OverwritingHeader|HeaderTooShort|ParserTimeout|accept|reject|exact|ternary|lpm|range|hit|action_run|NoAction)\\b"
+			}]
+		},		
+		"variables": {
+			"patterns": [{
+				"name": "variable.language.p4_16",
+				"match": "\\b(next|nextIndex|last|lastIndex)\\b"
+			}]
+		},
+		"types": {
+			"patterns": [{
+				"name": "entity.name.type.p4_16",
+				"match": "\\b(bit|bool|varbit|int|void|error)\\b"
+			}]
+		},
+		"custom_types": {
+			"patterns": [{
+				"name": "entity.name.type.p4_16",
+				"match": "[a-zA-Z0-9_]+(?=[ \\t]+[a-zA-Z0-9_]+[ \\t]*[;,)])"
+			}]
+		},
+		"type_definition": {
+			"patterns": [{
+				"name": "storage.type.p4_16",
+				"match": "\\b(struct|header|enum|header_union|typedef|type|extern)\\b"
+			}]
+		},
+		"direction_modifier": {
+			"patterns": [{
+				"name": "storage.modifier.p4_16",
+				"match": "\\b(const|in|out|inout)\\b"
+			}]
+		},
+		"functions": {			
+			"patterns": [{
+				"name": "keyword.control.p4_16",
+				"match": "\\b(if|else|return|exit|emit|extract|lookahead|advance|length|apply|mark_to_drop|isValid|isInvalid|setValid|setInvalid|verify|update_checksum|HashAlgorithm)\\b"
+			}]
+		},	
+		"preprocessors": {			
+			"patterns": [{
+				"name": "keyword.control.p4_16",
+				"match": "[#](include|define|undef|if|ifdef|ifndef|elif|else|endif|defined|line|file|error|warning) "
+			}]
+		},	
+		"p4file": {			
+			"patterns": [{
+				"name": "variable.parameter.p4_16",
+				"match": "<[a-zA-Z0-9_]+[.]p4>"
+			}]
+		},	
+		"package": {			
+			"patterns": [{
+				"name": "variable.parameter.p4_16",
+				"match": "(V1Switch(?=[ \\t(])|(?<=[ \\t])main(?=[;]))"
+			}]
+		},	
+		"keywords": {			
+			"patterns": [{
+				"name": "storage.type.p4_16",
+				"match": "\\b(control|parser|table|key|action|entries|implementation|counters|meters|actions|size|default|default_action|match_kind|package|state|transition|select|switch)\\b"
+			}]
+		},
+		"operations": {
+			"patterns": [{
+				"name": "keyword.operator.type.p4_16",
+				"match": "\\b(and|or|not)\\b"
+			}]
+		}		
 	},
 	"scopeName": "text.p4_16"
 }
