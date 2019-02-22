@@ -1,9 +1,95 @@
 {
+    "parser": {
+        "prefix": "parser",
+        "body": [
+            "parser ${1:name}(packet_in packet,",
+            "\t\t\tout headers hdr,",
+            "\t\t\tinout metadata meta,",
+            "\t\t\tinout standard_metadata_t standard_metadata){",
+            "\tstate start {",
+            "\t\ttransition select(${2:condition}) {",
+            "\t\t\tdefault: accept;",
+            "\t\t}",
+            "\t}",
+            "}"
+        ],
+		"description": "Create a parser for V1Switch architecture"
+    },
+    "control": {
+        "prefix": "control",
+        "body": [
+            "control ${1:name}(inout headers hdr,",
+            "\t\t\tinout metadata meta,",
+            "\t\t\tinout standard_metadata_t standard_metadata){",
+            "\tapply {",
+            "\t\t$0",
+            "\t}",
+            "}"
+        ],
+		"description": "Create a Control for V1Switch architecture"
+    },
     "table": {
         "prefix": "table",
         "body": [
-            "teste $1"
+            "table ${1:table_name} {",
+            "\tkey = {",
+            "\t\t${2:key_name}: ${3:lpm};",
+            "\t}",
+            "\tactions = {",
+            "\t\t${4:action_name};",
+            "\t\tNoAction;",
+            "\t}",
+            "\tsize = ${5:512}",
+            "\tdefault_action = ${6:NoAction()};",
+            "}"
         ],
 		"description": "Create a match-action table"
+    },
+    "action": {
+        "prefix": "action",
+        "body": [
+            "action ${1:name}(${2:params}) {",
+            "\t$0",
+            "}"
+        ],
+		"description": "Create a action declaration"
+    },
+    "update_checksum": {
+        "prefix": "update_checksum",
+        "body": [
+            "update_checksum(${1:header}.isValid(),",
+            "\t{ ${2:data} },",
+            "\t${3:header_update_field},",
+            "HashAlgorithm.${4:csum16});"
+        ],
+		"description": "Call update_checksum() function"
+    },
+    "if": {
+        "prefix": "if",
+        "body": [
+            "if (${1:bool_condition}) {",
+            "\t$2",
+            "}"
+        ],
+		"description": "if snippet"
+    },
+    "else": {
+        "prefix": "else",
+        "body": [
+            "else {",
+            "\t$1",
+            "}"
+        ],
+		"description": "else snippet"
+    },
+    "select": {
+        "prefix": "select",
+        "body": [
+            "select(${1:condition}) {",
+            "\t${2:match_cond}: ${3:next_state};",
+            "\tdefault: accept;",
+            "}"
+        ],
+		"description": "select snippet"
     }
 }
