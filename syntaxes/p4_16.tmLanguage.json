@@ -124,7 +124,7 @@
 		"functions": {			
 			"patterns": [{
 				"name": "keyword.control.p4_16",
-				"match": "\\b(if|else|return|exit|emit|extract|lookahead|advance|length|apply|mark_to_drop|isValid|isInvalid|setValid|setInvalid|verify|update_checksum|HashAlgorithm)\\b"
+				"match": "\\b(if|else|return|exit|emit|extract|lookahead|advance|length|apply|mark_to_drop|isValid|isInvalid|setValid|setInvalid|verify|update_checksum|verify_checksum|HashAlgorithm)\\b"
 			}]
 		},	
 		"preprocessors": {			

@@ -15,6 +15,17 @@
         ],
 		"description": "Create a parser for V1Switch architecture"
     },
+    "state": {
+        "prefix": "state",
+        "body": [            
+            "state ${1:state_name} {",
+            "\ttransition select(${2:condition}) {",
+            "\t\tdefault: accept;",
+            "\t}",
+            "}"            
+        ],
+		"description": "Create a state for a parser"
+    },
     "control": {
         "prefix": "control",
         "body": [
