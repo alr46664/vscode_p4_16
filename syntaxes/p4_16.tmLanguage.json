@@ -106,7 +106,7 @@
 		"custom_types": {
 			"patterns": [{
 				"name": "entity.name.type.p4_16",
-				"match": "[a-zA-Z0-9_]+(?=[ \\t]+[a-zA-Z0-9_]+[ \\t]*[;,)])"
+				"match": "[a-zA-Z0-9_\\[\\]]+(?=[ \\t]+[a-zA-Z0-9_]+[ \\t]*[=;,)])"
 			}]
 		},
 		"type_definition": {
@@ -124,7 +124,7 @@
 		"functions": {			
 			"patterns": [{
 				"name": "keyword.control.p4_16",
-				"match": "\\b(if|else|return|exit|emit|extract|lookahead|advance|length|apply|mark_to_drop|isValid|isInvalid|setValid|setInvalid|verify|update_checksum|verify_checksum|HashAlgorithm)\\b"
+				"match": "\\b(if|else|return|exit|emit|extract|lookahead|advance|length|apply|mark_to_drop|isValid|isInvalid|setValid|setInvalid|verify|update_checksum|update_checksum_with_payload|verify_checksum|verify_checksum_with_payload|HashAlgorithm)\\b"
 			}]
 		},	
 		"preprocessors": {			

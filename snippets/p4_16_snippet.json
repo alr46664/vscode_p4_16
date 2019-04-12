@@ -50,7 +50,7 @@
             "\t\t${4:action_name};",
             "\t\tNoAction;",
             "\t}",
-            "\tsize = ${5:512}",
+            "\tsize = ${5:512};",
             "\tdefault_action = ${6:NoAction()};",
             "}"
         ],
