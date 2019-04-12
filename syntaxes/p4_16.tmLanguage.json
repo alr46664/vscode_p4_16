@@ -36,6 +36,9 @@
 			"include": "#preprocessors"
 		},
 		{
+			"include": "#annotations"
+		},
+		{
 			"include": "#operations"
 		},
 		{
@@ -131,6 +134,12 @@
 			"patterns": [{
 				"name": "keyword.control.p4_16",
 				"match": "[#](include|define|undef|if|ifdef|ifndef|elif|else|endif|defined|line|file|error|warning) "
+			}]
+		},	
+		"annotations": {			
+			"patterns": [{
+				"name": "keyword.control.p4_16",
+				"match": "[@](atomic|pkginfo|tableonly|defaultonly|name|hidden|optional)"
 			}]
 		},	
 		"p4file": {			
